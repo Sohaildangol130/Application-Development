@@ -1,24 +1,36 @@
-﻿<!DOCTYPE html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Coursework.Login" %>
+
+<!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Login</title>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="Content/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body>
-    <h1>Login</h1>
-    <form id="login_form" runat="server">
+<body style="padding-top: unset">
+    <div class="container">
         <div>
-            <asp:Label ID="Label1" runat="server" Text="Username"></asp:Label>
-            <asp:TextBox ID="username" runat="server"></asp:TextBox>
+            <h1>Login</h1>
+            <div class="row mt-4">
+                <div class="col-6">
+                    <form runat="server">
+                        <div class="form-group">
+                          <label>Email address</label>
+                            <asp:TextBox ID="email" CssClass="form-control" runat="server" Placeholder="example@gmail.com"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                          <label>Password</label>
+                            <asp:TextBox TextMode="Password" CssClass="form-control" ID="password" runat="server" Placeholder="Password"></asp:TextBox>
+                        </div>
+                        <asp:Button CssClass="btn btn-primary" ID="login_btn" runat="server" Text="Login" OnClick="login_btn_Click"/>
+                      </form>
+                </div>
+                <div class="col-6"></div>
+            </div>
         </div>
-        <div>
-            <asp:Label ID="Label2" runat="server" Text="Password"></asp:Label>
-            <asp:TextBox ID="password" runat="server"></asp:TextBox>
-        </div>
-        <div>
-            <asp:Button ID="Button1" runat="server" Text="Login" />
-        </div>
-    </form>
-    
+    </div>
 </body>
 </html>

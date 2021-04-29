@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CourseworkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CourseworkEntities8" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Categories" EntityType="CourseworkModel.Category" />
+    <EntitySet Name="Customers" EntityType="CourseworkModel.Customer" />
+    <EntitySet Name="Items" EntityType="CourseworkModel.Item" />
+    <EntitySet Name="Users" EntityType="CourseworkModel.User" />
+    <AssociationSet Name="FK__Items__Category___3E52440B" Association="CourseworkModel.FK__Items__Category___3E52440B">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Item" EntitySet="Items" />
+    </AssociationSet>
+    <EntitySet Name="Billing_details" EntityType="CourseworkModel.Billing_details" />
+    <AssociationSet Name="FK__Billing_d__Custo__440B1D61" Association="CourseworkModel.FK__Billing_d__Custo__440B1D61">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Billing_details" EntitySet="Billing_details" />
+    </AssociationSet>
+    <EntitySet Name="Sales" EntityType="CourseworkModel.Sale" />
+    <AssociationSet Name="FK__Billing_d__Custo__440B1D611" Association="CourseworkModel.FK__Billing_d__Custo__440B1D611">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Billing_details" EntitySet="Billing_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__Item_id__412EB0B6" Association="CourseworkModel.FK__Sales__Item_id__412EB0B6">
+      <End Role="Item" EntitySet="Items" />
+      <End Role="Sale" EntitySet="Sales" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Items" Relationship="CourseworkModel.FK__Items__Category___3E52440B" FromRole="Category" ToRole="Item" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="First_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone_no" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Billing_details" Relationship="CourseworkModel.FK__Billing_d__Custo__440B1D611" FromRole="Customer" ToRole="Billing_details" />
+  </EntityType>
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="Total" Type="Int32" />
+    <Property Name="Last_stocked_on" Type="DateTime" Precision="0" />
+    <Property Name="Category_id" Type="Int32" />
+    <NavigationProperty Name="Category" Relationship="CourseworkModel.FK__Items__Category___3E52440B" FromRole="Item" ToRole="Category" />
+    <NavigationProperty Name="Billing_details" Relationship="CourseworkModel.FK__Billing_d__Custo__440B1D61" FromRole="Item" ToRole="Billing_details" />
+    <NavigationProperty Name="Sales" Relationship="CourseworkModel.FK__Sales__Item_id__412EB0B6" FromRole="Item" ToRole="Sale" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="First_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Items__Category___3E52440B">
+    <End Type="CourseworkModel.Category" Role="Category" Multiplicity="0..1" />
+    <End Type="CourseworkModel.Item" Role="Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="Category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Billing_details">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Customer_id" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Item_id" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Item" Relationship="CourseworkModel.FK__Billing_d__Custo__440B1D61" FromRole="Billing_details" ToRole="Item" />
+    <NavigationProperty Name="Customer" Relationship="CourseworkModel.FK__Billing_d__Custo__440B1D611" FromRole="Billing_details" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK__Billing_d__Custo__440B1D61">
+    <End Type="CourseworkModel.Item" Role="Item" Multiplicity="1" />
+    <End Type="CourseworkModel.Billing_details" Role="Billing_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Billing_details">
+        <PropertyRef Name="Item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Sale">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item_id" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Item" Relationship="CourseworkModel.FK__Sales__Item_id__412EB0B6" FromRole="Sale" ToRole="Item" />
+  </EntityType>
+  <Association Name="FK__Billing_d__Custo__440B1D611">
+    <End Type="CourseworkModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="CourseworkModel.Billing_details" Role="Billing_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Billing_details">
+        <PropertyRef Name="Customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__Item_id__412EB0B6">
+    <End Type="CourseworkModel.Item" Role="Item" Multiplicity="0..1" />
+    <End Type="CourseworkModel.Sale" Role="Sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sale">
+        <PropertyRef Name="Item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

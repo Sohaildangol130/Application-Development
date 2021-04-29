@@ -72,3 +72,7 @@ E:\Coursework\App dev\Application-Development\Coursework\Coursework\obj\Debug\Co
 E:\Coursework\App dev\Application-Development\Coursework\Coursework\obj\Debug\Coursework.csproj.CopyComplete
 E:\Coursework\App dev\Application-Development\Coursework\Coursework\obj\Debug\Coursework.dll
 E:\Coursework\App dev\Application-Development\Coursework\Coursework\obj\Debug\Coursework.pdb
+E:\Coursework\App dev\Application-Development\Coursework\Coursework\bin\EntityFramework.dll
+E:\Coursework\App dev\Application-Development\Coursework\Coursework\bin\EntityFramework.SqlServer.dll
+E:\Coursework\App dev\Application-Development\Coursework\Coursework\bin\EntityFramework.xml
+E:\Coursework\App dev\Application-Development\Coursework\Coursework\bin\EntityFramework.SqlServer.xml

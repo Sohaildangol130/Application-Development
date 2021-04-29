@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="588e7075841f4b399b36f8fe0cc6d9b9" Name="Diagram1">
+        <EntityTypeShape EntityType="CourseworkModel.Category" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="CourseworkModel.Customer" Width="1.5" PointX="5.25" PointY="5.25" />
+        <EntityTypeShape EntityType="CourseworkModel.Item" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="CourseworkModel.User" Width="1.5" PointX="0.75" PointY="4.75" />
+        <AssociationConnector Association="CourseworkModel.FK__Items__Category___3E52440B" />
+        <EntityTypeShape EntityType="CourseworkModel.Billing_details" Width="1.5" PointX="6.625" PointY="1.75" />
+        <AssociationConnector Association="CourseworkModel.FK__Billing_d__Custo__440B1D61" />
+        <EntityTypeShape EntityType="CourseworkModel.Sale" Width="1.5" PointX="5.25" PointY="8.625" />
+        <AssociationConnector Association="CourseworkModel.FK__Billing_d__Custo__440B1D611" />
+        <AssociationConnector Association="CourseworkModel.FK__Sales__Item_id__412EB0B6" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

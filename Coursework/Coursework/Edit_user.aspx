@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Edit_user.aspx.cs" Inherits="Coursework.Edit_user" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-4">
-        <h1>Add user</h1>
+        <h1>Edit user</h1>
         <div class="row mt-4">
             <div class="col-6">
                 <form>

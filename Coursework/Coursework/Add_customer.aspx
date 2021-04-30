@@ -22,7 +22,7 @@
                     </div>
                     <div class="form-group">
                       <label>Phone number</label>
-                        <asp:TextBox TextMode="Number" CssClass="form-control" ID="phone_number" runat="server" placeholder="Phone number"></asp:TextBox>
+                        <asp:TextBox TextMode="Number" CssClass="form-control" ID="phone_number" MaxLength="10" runat="server" placeholder="Phone number"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="phone_number" ErrorMessage="Phone number is missing." ForeColor="Red"></asp:RequiredFieldValidator>
                     </div>
                     <div class="form-group">

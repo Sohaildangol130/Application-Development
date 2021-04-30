@@ -15,6 +15,33 @@ namespace Coursework
     {
 
         /// <summary>
+        /// logout_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button logout_btn;
+
+        /// <summary>
+        /// edit_profile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button edit_profile;
+
+        /// <summary>
+        /// User_logout_btn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button User_logout_btn;
+
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

@@ -11,7 +11,10 @@ namespace Coursework
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"] == null)
+            {
+                Response.Redirect("/Login");
+            }
         }
 
         protected void add_btn_Click(object sender, EventArgs e)

@@ -11,7 +11,24 @@ namespace Coursework
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Response.Redirect("/Login");
+            }
+        }
 
+        protected void delete_btn_Click(object sender, EventArgs e)
+        {
+            using (CourseworkEntities8 context = new CourseworkEntities8())
+            {
+                var rows = from o in context.Items select o;
+                foreach (var row in rows)
+                {
+                    context.Items.Remove(row);
+                }
+                context.SaveChanges();
+                Response.Redirect("/Items");
+            }
         }
     }
 }

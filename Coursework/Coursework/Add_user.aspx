@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label>User type</label>
                         <div>
-                            <asp:DropDownList ID="user_type" runat="server">
+                            <asp:DropDownList ID="user_type" runat="server" CssClass="form-select">
                                 <asp:ListItem Text="Admin" Value="Admin" />
                                 <asp:ListItem Text="Non Admin" Value="Non Admin" />
                             </asp:DropDownList>

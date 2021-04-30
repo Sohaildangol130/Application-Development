@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <label for="sel1">Category</label>
                         <div>
-                            <asp:DropDownList ID="category" runat="server" DataTextField="Category_name" DataValueField="Id" DataSourceID="SqlDataSource1"></asp:DropDownList>
+                            <asp:DropDownList CssClass="form-select" ID="category" runat="server" DataTextField="Category_name" DataValueField="Id" DataSourceID="SqlDataSource1"></asp:DropDownList>
                         </div>
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="category" ErrorMessage="Category is missing." ForeColor="Red"></asp:RequiredFieldValidator>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CourseworkConnectionString %>" SelectCommand="SELECT * FROM [Category]">

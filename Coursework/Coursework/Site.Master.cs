@@ -13,5 +13,16 @@ namespace Coursework
         {
 
         }
+
+        protected void logout_btn_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("/Login");
+        }
+
+        protected void edit_profile_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/edit_user/?u_id=" + Session["user_id"]);
+        }
     }
 }

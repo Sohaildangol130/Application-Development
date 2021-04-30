@@ -7,6 +7,7 @@
                 <a runat="server" href="~/Add_item">
                     <button type="button" class="btn btn-primary">Add item</button>
                 </a>
+                <asp:Button ID="delete_btn" CssClass="btn btn-link" Text="Delete all items" OnClick="delete_btn_Click" runat="server"/>
             </div>
         </div>
         <div class="mt-4">

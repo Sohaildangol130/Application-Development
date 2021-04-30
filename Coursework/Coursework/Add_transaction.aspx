@@ -1,20 +1,20 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Add_transaction.aspx.cs" Inherits="Coursework.Add_transaction" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-4">
-        <h1>Add items</h1>
+        <h1>Create bill</h1>
         <div class="row mt-4">
             <div class="col-6">
                 <div class="form-group">
                     <label>Customer</label>
                     <div>
-                        <asp:DropDownList ID="customer" runat="server" DataSourceID="SqlDataSource1" DataTextField="First_name" DataValueField="Id"></asp:DropDownList>
+                        <asp:DropDownList CssClass="form-select" ID="customer" runat="server" DataSourceID="SqlDataSource1" DataTextField="First_name" DataValueField="Id"></asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CourseworkConnectionString2 %>" SelectCommand="SELECT * FROM [Customers]"></asp:SqlDataSource>                    
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Item</label>
                     <div>
-                        <asp:DropDownList ID="item" runat="server" DataSourceID="SqlDataSource2" DataTextField="Item_name" DataValueField="Id"></asp:DropDownList>
+                        <asp:DropDownList CssClass="form-select" ID="item" runat="server" DataSourceID="SqlDataSource2" DataTextField="Item_name" DataValueField="Id"></asp:DropDownList>
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:CourseworkConnectionString2 %>" SelectCommand="SELECT * FROM [Items]"></asp:SqlDataSource>
                     </div>
                 </div>

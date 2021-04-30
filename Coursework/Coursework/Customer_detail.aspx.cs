@@ -12,7 +12,11 @@ namespace Coursework
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int id = int.Parse(Request.QueryString["u_id"]);
+            if (Session["username"] == null)
+            {
+                Response.Redirect("/Login");
+            }
+            int id = int.Parse(Request.QueryString["c_id"]);
             using (CourseworkEntities8 context = new CourseworkEntities8())
             {
                 var bill_query = context.Billing_details.Where(s => s.Customer_id == id);

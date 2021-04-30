@@ -24,6 +24,10 @@
                               CommandName="edit"
                               CommandArgument='<%# Container.DataItemIndex %>'
                               Text="Edit" />
+                            <asp:Button ID="delete_btn" CssClass="btn btn-link" runat="server"
+                              CommandName="delete"
+                              CommandArgument='<%# Container.DataItemIndex %>'
+                              Text="Delete" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

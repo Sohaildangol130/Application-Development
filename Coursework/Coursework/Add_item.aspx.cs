@@ -11,6 +11,10 @@ namespace Coursework
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Response.Redirect("/Login");
+            }
         }
 
         protected void Add_button_Click(object sender, EventArgs e)
@@ -24,7 +28,7 @@ namespace Coursework
                     Price = int.Parse(price.Text),
                     Total = int.Parse(stock.Text),
                     Last_stocked_on = DateTime.Parse(purchase_date.Text),
-                    Category_id = int.Parse(category.SelectedValue)
+                    Category_id = Int32.Parse(category.SelectedValue)
                 };
                 context.Items.Add(item);
                 context.SaveChanges();

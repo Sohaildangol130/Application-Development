@@ -8,7 +8,7 @@
                     <div class="form-group">                        
                         <label>Category name</label>
                         <div>
-                            <asp:TextBox CssClass="form-control" ID="category_name" runat="server" placeholder="Category" ControlToValidate="username" ErrorMessage="Please enter a user name" ForeColor="Red"></asp:TextBox>
+                            <asp:TextBox CssClass="form-control" ID="category_name" runat="server" placeholder="Category" ControlToValidate="username" ErrorMessage="Please enter a user name"></asp:TextBox>
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="category_name" ErrorMessage="Category name is missing." ForeColor="Red"></asp:RequiredFieldValidator>
                         </div>  
                     </div>

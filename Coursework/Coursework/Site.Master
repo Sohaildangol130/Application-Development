@@ -63,7 +63,7 @@ tr:nth-child(odd) {
         </asp:ScriptManager>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">Big Shop</a>
+                <a class="navbar-brand" runat="server" href="~/">Veganly</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -84,9 +84,33 @@ tr:nth-child(odd) {
                         <li class="nav-item">
                         <a class="nav-link" runat="server" href="~/Transactions">Transactions</a>
                         </li>
-                        <li class="nav-item">
-                        <a class="nav-link" runat="server" href="~/Users">Users</a>
-                        </li>
+                        <% 
+                        if (Session["username"] != null)
+                        {%>
+                        <% 
+                        if (Session["user_type"].ToString() == "Admin")
+                        {%>
+                            <li class="nav-item">
+                                <a class="nav-link" runat="server" href="~/Users">Users</a>
+                            </li> 
+                            <li class="nav-item">
+                                <asp:Button runat="server" ID="logout_btn" CssClass="btn btn-text" OnClick="logout_btn_Click" Text="Logout" CausesValidation="False"/>
+                            </li>                      
+                        <%
+                        }%>
+                        <% 
+                        else
+                        {%>
+                            <li class="nav-item">
+                                <asp:Button runat="server" ID="edit_profile" CssClass="btn btn-text" Text="Edit user" OnClick="edit_profile_Click" CausesValidation="False"/>
+                            </li> 
+                            <li class="nav-item">
+                                <asp:Button runat="server" ID="User_logout_btn" CssClass="btn btn-text" OnClick="logout_btn_Click" Text="Logout" CausesValidation="False"/>
+                            </li>  
+                        <%
+                        }%>
+                        <%
+                        }%>
                     </ul>
                 </div>
             </div>
@@ -96,7 +120,7 @@ tr:nth-child(odd) {
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Veganly.</p>
             </footer>
         </div>
 
